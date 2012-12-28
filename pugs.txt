@@ -1,1 +1,1 @@
-All pugs:\n
+<p> All pugs: <\p>
