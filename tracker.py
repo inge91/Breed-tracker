@@ -70,9 +70,10 @@ def update_pug_list():
             wfile = f.read()
             f.close()
             f = open('pugs.txt', 'a')
-            #duplicate = re.search(str(site), str(wfile))
-            #if duplicate == None:
-            f.write("<p><a href=" + site + ">" + site + "</a></p>")
+            if site in wfile:
+                pass
+            else:
+                f.write("<p><a href=" + site + ">" + site + "</a></p>")
             f.close()
 
 def main():
