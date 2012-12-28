@@ -16,11 +16,7 @@ def display():
 
 @app.route('/update')
 def update():
-    update_pug_list()
-
-# retrieve pug list and return content
-def get_pug_list():
-    pass
+    return update_pug_list()
 
 def extract_site(animal):
     # Extract species header
