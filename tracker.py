@@ -96,7 +96,7 @@ def update_pug_list():
                 pass
             else:
                 f.write("<p><a href=" + site + ">" + site + "</a></p>")
-                send_mail("inge.becht91@gmail.com")
+                #send_mail("inge.becht91@gmail.com")
             f.close()
 
 def main():
