@@ -67,7 +67,10 @@ def update_pug_list():
         if(find_breed(animal)):
             site = extract_site(animal)
             f = open('pugs.txt', 'a')
-            if re.search(site, f.read()) == None:
+            wfile = f.read()
+            if re.search(site, wfile):
+                pass
+            else: 
                 pass
             #    f.write("<p><a href=" + site + ">" + site + "</a></p>")
 
