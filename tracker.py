@@ -64,8 +64,7 @@ def find_breed(animal):
 def send_mail(receiver):
     fromaddr = gmail_user
     toaddrs = receiver
-    msg = """A new pug is detected! Go to http://serene-depths-3318.herokuapp.com/
-    to see the new pugs"""
+    msg = "A new pug is detected! Go to http://serene-depths-3318.herokuapp.com/"
 
     #provide gmail user name and password
     username =  gmail_user
