@@ -2,7 +2,11 @@ import requests
 import re
 import time
 import os
+import smtplib
 from flask import Flask
+
+gmail_user = "breed.tracker@gmail.com"
+gmail_pwd = "i love them squishy pugs"
 
 breeds = ["mops", "Mops", "pug", "Pug", "Herder"]
 species = "hond"
@@ -57,6 +61,25 @@ def find_breed(animal):
             if re.search(b, description):
                 return True
 
+def send_mail(receiver):
+    fromaddr = gmail_user
+    toaddrs = receiver
+    msg = "A new pug is detected! Go to http://serene-depths-3318.herokuapp.com/
+    to see the new pugs" 
+
+    #provide gmail user name and password
+    username =  gmail_user
+    password = gmail_pwd
+
+    # functions to send an email
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login(username,password)
+    server.sendmail(fromaddr, toaddrs, msg)
+    server.quit()
+
 # updates list of pugs.txt by adding new entries
 def update_pug_list():
     r = requests.get('http://www.ikzoekbaas.nl/rss.php')
@@ -74,6 +97,7 @@ def update_pug_list():
                 pass
             else:
                 f.write("<p><a href=" + site + ">" + site + "</a></p>")
+                send_mail("inge.becht91@gmail.com")
             f.close()
 
 def main():
