@@ -1,10 +1,25 @@
 import requests
 import re
 import time
+import os
+from flask import Flask
 
 breeds = ["mops", "Mops", "pug", "Pug"]
 species = "hond"
 
+app = Flask(__name__)
+
+@app.route('/')
+def display():
+    return get_pug_list()
+
+@app.route('/update')
+def update():
+    update_pug_list()
+
+# retrieve pug list and return content
+def get_pug_list():
+    pass
 
 def extract_site(animal):
     # Extract species header
@@ -44,19 +59,21 @@ def find_breed(animal):
             if re.search(b, description):
                 return True
 
+# updates list of pugs.txt by adding new entries
+def update_pug_list():
+    r = requests.get('http://www.ikzoekbaas.nl/rss.php')
+    content =  r.text
+    split_item = content.split('</item>')
+    split_item = split_item[1:]
+    for animal in split_item:
+        if(find_breed(animal)):
+            print "found a pug!"
+            print extract_site(animal)
 
 def main():
-    while(True):
-        #time.sleep(300)
-        r = requests.get('http://www.ikzoekbaas.nl/rss.php')
-        content =  r.text
-        split_item = content.split('</item>')
-        split_item = split_item[1:]
-        for animal in split_item:
-            if(find_breed(animal)):
-                print "found a pug!"
-                print extract_site(animal)
-        time.sleep(300)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
 
 if __name__ == "__main__":
     main()
