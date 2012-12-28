@@ -2,7 +2,7 @@ import requests
 import re
 import time
 
-breed = ["mops", "Mops", "pug", "Pug"]
+breeds = ["mops", "Mops", "pug", "Pug"]
 species = "hond"
 
 
@@ -47,7 +47,7 @@ def find_breed(animal):
 
 def main():
     while(True):
-        time.sleep(300)
+        #time.sleep(300)
         r = requests.get('http://www.ikzoekbaas.nl/rss.php')
         content =  r.text
         split_item = content.split('</item>')
