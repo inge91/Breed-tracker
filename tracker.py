@@ -1,7 +1,8 @@
 import requests
 import re
+import time
 
-breed = "mops" 
+breed = ["mops", "Mops", "pug", "Pug"]
 species = "hond"
 
 
@@ -39,19 +40,22 @@ def find_breed(animal):
         begin = descr_begin.start()
         end = descr_end.end()
         description = animal[begin:end]
-        if re.search(breed, description):
-            return True
+        for b in breeds:
+            if re.search(b, description):
+                return True
 
 
 def main():
-    r = requests.get('http://www.ikzoekbaas.nl/rss.php')
-    content =  r.text
-    split_item = content.split('</item>')
-    split_item = split_item[1:]
-    for animal in split_item:
-        if(find_breed(animal)):
-            print "found a pug!"
-            print extract_site(animal)
+    while(True):
+        time.sleep(300)
+        r = requests.get('http://www.ikzoekbaas.nl/rss.php')
+        content =  r.text
+        split_item = content.split('</item>')
+        split_item = split_item[1:]
+        for animal in split_item:
+            if(find_breed(animal)):
+                print "found a pug!"
+                print extract_site(animal)
 
 if __name__ == "__main__":
     main()
