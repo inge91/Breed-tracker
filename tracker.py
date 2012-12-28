@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def display():
-    return get_pug_list()
+    return "pugs"
 
 @app.route('/update')
 def update():
