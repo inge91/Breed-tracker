@@ -1,1 +1,1 @@
-<p> All pugs: </p>
+<p> All pugs </p>
