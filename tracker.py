@@ -8,7 +8,7 @@ from flask import Flask
 gmail_user = "breed.tracker@gmail.com"
 gmail_pwd = "i love them squishy pugs"
 
-breeds = ["mops", "Mops", "pug", "Pug", "Herder"]
+breeds = ["mops", "Mops", "pug", "Pug"]
 species = "hond"
 
 app = Flask(__name__)
