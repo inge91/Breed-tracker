@@ -67,7 +67,9 @@ def update_pug_list():
         if(find_breed(animal)):
             site = extract_site(animal)
             f = open('pugs.txt', 'a')
-            wfile = f.readline()
+            wfile = f.read()
+            f.close()
+            f = open('pugs.txt', 'a')
             #duplicate = re.search(str(site), str(wfile))
             #if duplicate == None:
             f.write("<p><a href=" + site + ">" + site + "</a></p>")
