@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def display():
-    f = open('/pugs.txt', 'r')
+    #f = open('pugs.txt', 'r')
     return "hello"
 
 @app.route('/update')
@@ -69,7 +69,7 @@ def update_pug_list():
     for animal in split_item:
         if(find_breed(animal)):
             site =  extract_site(animal)
-            f = open('/pugs.txt', 'a')
+            f = open('pugs.txt', 'a')
             f.write(site + "\n")
 
 def main():
