@@ -68,7 +68,7 @@ def update_pug_list():
             site = extract_site(animal)
             f = open('pugs.txt', 'a')
             wfile = f.readline()
-            if re.search(site, wfile):
+            if re.search(str(site), str(wfile)):
                 pass
             else: 
                 f.write("<p><a href=" + site + ">" + site + "</a></p>")
