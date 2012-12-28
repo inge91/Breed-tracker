@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def display():
-    #f = open('pugs.txt', 'r')
+    f = open('pugs.txt', 'r')
     return "hello"
 
 @app.route('/update')
