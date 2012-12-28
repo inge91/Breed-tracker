@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/')
 def display():
     f = open('/pugs.txt', 'r')
-    return f.read()
+    return "hello"
 
 @app.route('/update')
 def update():
