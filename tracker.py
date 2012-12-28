@@ -16,7 +16,8 @@ def display():
 
 @app.route('/update')
 def update():
-    return update_pug_list()
+    update_pug_list()
+    return "It went well"
 
 def extract_site(animal):
     # Extract species header
@@ -68,7 +69,6 @@ def update_pug_list():
             f = open('pugs.txt', 'a')
             if re.search(site, f.read()) == None:
                 f.write("<p><a href=" + site + ">" + site + "</a></p>")
-    return "All went well"
 
 def main():
     port = int(os.environ.get('PORT', 5000))
