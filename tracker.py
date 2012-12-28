@@ -4,7 +4,7 @@ import time
 import os
 from flask import Flask
 
-breeds = ["mops", "Mops", "pug", "Pug"]
+breeds = ["mops", "Mops", "pug", "Pug", "Herder"]
 species = "hond"
 
 app = Flask(__name__)
