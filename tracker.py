@@ -8,7 +8,7 @@ from flask import Flask
 gmail_user = "breed.tracker@gmail.com"
 gmail_pwd = "i love them squishy pugs"
 
-breeds = ["mops", "Mops", "pug", "Pug", "Herder"]
+breeds = ["mops", "Mops", "pug", "Pug"]
 species = "hond"
 
 app = Flask(__name__)
@@ -64,7 +64,7 @@ def find_breed(animal):
 def send_mail(receiver):
     fromaddr = gmail_user
     toaddrs = receiver
-    msg = "A new pug is detected!"
+    msg = "A new pug is detected! go to http://serene-depths-3318.herokuapp.com/"
 
     #provide gmail user name and password
     username =  gmail_user
