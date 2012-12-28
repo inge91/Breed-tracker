@@ -70,7 +70,8 @@ def update_pug_list():
         if(find_breed(animal)):
             site =  extract_site(animal)
             f = open('pugs.txt', 'a')
-            f.write("<p>" +site + "<\p>")
+            if re.search(site, f.read()) == None:
+                f.write("<p><a href=" + site + ">" + site + "</a></p>")
 
 def main():
     port = int(os.environ.get('PORT', 5000))
