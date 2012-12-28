@@ -11,7 +11,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def display():
-    return "pugs"
+    f = open('/pugs.txt', 'r')
+    return f.read()
 
 @app.route('/update')
 def update():
@@ -67,8 +68,9 @@ def update_pug_list():
     split_item = split_item[1:]
     for animal in split_item:
         if(find_breed(animal)):
-            print "found a pug!"
-            print extract_site(animal)
+            site =  extract_site(animal)
+            f = open('/pugs.txt', 'a')
+            f.write(site + "\n")
 
 def main():
     port = int(os.environ.get('PORT', 5000))
