@@ -56,6 +56,7 @@ def main():
             if(find_breed(animal)):
                 print "found a pug!"
                 print extract_site(animal)
+        time.sleep(300)
 
 if __name__ == "__main__":
     main()
