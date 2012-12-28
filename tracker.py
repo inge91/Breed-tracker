@@ -66,9 +66,9 @@ def update_pug_list():
     for animal in split_item:
         if(find_breed(animal)):
             site = extract_site(animal)
-            f = open('pugs.txt', 'a')
-            if re.search(site, f.read()) == None:
-                f.write("<p><a href=" + site + ">" + site + "</a></p>")
+            #f = open('pugs.txt', 'a')
+            #if re.search(site, f.read()) == None:
+            #    f.write("<p><a href=" + site + ">" + site + "</a></p>")
 
 def main():
     port = int(os.environ.get('PORT', 5000))
